@@ -34,6 +34,24 @@ h1{
 
 }
 
+#restart{
+  margin-top: 40px;
+}
+
+#restart button{
+  height: 70px;
+  width: 250px;
+  border: 0;
+  
+  font-size: 32px;
+  border-radius: 15px;
+}
+
+#restart button:hover{
+  background-color: rgb(170, 169, 169);
+  cursor: pointer;
+}
+
 .square{
   display: flex;
   justify-content: center;

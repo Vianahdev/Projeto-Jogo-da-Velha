@@ -3,30 +3,33 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let squares = document.querySelectorAll(".square");
 
   squares.forEach((square)=>{
-    square.addEventListener('click', handClick);
+    square.addEventListener("click", handleClick)
   })
 })
 
-function handClick(event){
-  console.log(event.target)
+function handleClick(event){
 
   let square = event.target;
   let position = square.id;
 
-  handleMove(position);
+  if(handleMove(position)){
+    setTimeout(() => {
+      alert("O JOGO ACABOU!!!!!!!");
+      alert('O VENCEDOR FOI O JOGADOR: ' + playerTime);
+    }, 20);
+  };
 
-  updateSquares();
+  updateSquare(position);
 }
 
-function updateSquares(){
-  let squares = document.querySelectorAll('.square');
+function updateSquare(position){
+  let square = document.getElementById(position.toString());
+  let symbol = board[position];
+  square.innerHTML = `<div class='${symbol}'></div>`
 
-  squares.forEach((square) =>{
-    let position = square.id;
-    let symbol = board[position];
+}
 
-    if(symbol != ''){
-      square.innerHTML = `<div class='${symbol}'></div>`
-    }
-  }) 
+
+function restartGame() {
+  window.location.reload()
 }
